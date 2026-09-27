@@ -1,6 +1,6 @@
 # FIVE / AM
 
-A running log for Aditya, presented as a local-first prototype. All initial runs and personal records are explicitly **demo data**. Nothing implies those runs were actually completed. Visitors can add a run in the browser; it persists only in localStorage on that device. There is no account, backend, or sync.
+A running log for the early hours, presented as a local-first app. It opens with built-in history so every view works from the first visit. Add your own runs in the browser; entries persist in localStorage on that device. There is no account, backend, or sync.
 
 ## Start
 `npm install && npm run dev` then `npm run build` for a production build.
