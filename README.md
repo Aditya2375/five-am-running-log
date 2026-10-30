@@ -2,6 +2,8 @@
 
 A running log for the early hours, presented as a local-first app. It opens with built-in history so every view works from the first visit. Add your own runs in the browser; entries persist in localStorage on that device. There is no account, backend, or sync.
 
+Live: https://aditya2375.github.io/five-am-running-log/
+
 ## Start
 `npm install && npm run dev` then `npm run build` for a production build.
 
