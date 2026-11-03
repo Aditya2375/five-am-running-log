@@ -1,0 +1,5 @@
+# FIVE / AM
+
+https://aditya2375.github.io/five-am-running-log/
+
+Personal runs stay locally in the browser. Sample data is separate and never included in personal totals. No personal performance claims. Browser storage is not a backup. Export runs as JSON. Remote sample data is illustrative, not verified performance.
