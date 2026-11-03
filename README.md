@@ -1,12 +1,15 @@
 # FIVE / AM
 
-A running log for the early hours, presented as a local-first app. It opens with built-in history so every view works from the first visit. Add your own runs in the browser; entries persist in localStorage on that device. There is no account, backend, or sync.
-
 Live: https://aditya2375.github.io/five-am-running-log/
 
-## Start
-`npm install && npm run dev` then `npm run build` for a production build.
+A browser-local running journal with a separate sample-data view. Personal runs are never sent to the shared database. Use MY RUNS for your metrics and SAMPLE LOG to explore the design. Every total, chart and calendar uses only the selected source.
 
-## Backend
+`npm install`, `npm run dev`; `npm run build -- --base=/five-am-running-log/` builds for the original Pages path. Fonts are self-hosted; licenses accompany them.
 
-The log is a shared Supabase Postgres table (`public.fiveam_runs`) read over PostgREST with the project's publishable browser key. Row Level Security: anyone can read, anyone can insert (validated server-side by check constraints — sane date/km/minutes ranges, fixed run-type enum, capped title), nobody can update or delete. Logging a run posts straight to the shared log; if the database is unreachable the entry saves to `localStorage` and the built-in sample seed shows instead (footer switches from "SHARED LOG · LIVE" to "PROTOTYPE / SAMPLE DATA"). No account, nothing personal asked. The seeded rows carry `demo: true` and are labeled "sample entry" in the UI.
+## Data and limits
+
+New runs save on this browser only. Export JSON to keep a backup. Clearing storage, changing browser or device loses access to local runs. If storage is full or restricted, a visible warning explains that this tab's memory is the only copy. Export before closing. At most1000local runs are retained. Date/title/type, distance0.1–300km and time1–3000minutes are validated, including when loading stored entries. Future dates cannot be saved.
+
+The Supabase endpoint supplies only explicitly marked sample rows, with a500row limit,15s timeout,1MB parsed-text limit and client validation. Failure falls back to bundled samples. Browser publishable key is intentionally public, not a credential proving server policies. No client writes or personal uploads exist. Server RLS, moderation and retention are not audited here.
+
+Pace rounds total seconds correctly, including minute carry. Pace chart scales to the selected data. Multiple sessions on a date add together on the calendar. ALL includes every selected-source run, not a hidden60row cutoff. Sample and personal numbers are never mixed. This is a journal, not medical or training advice.
